@@ -1,9 +1,16 @@
 import React from 'react';
 
-const Display = () => {
+type DisplayPropsType = {
+    title:string
+}
+
+const Display = (props:DisplayPropsType) => {
     return (
         <div>
-            
+            <h2>{props.title}</h2>
+            <input/>
+            <button>send</button>
+            <button>clear</button>
         </div>
     );
 };
