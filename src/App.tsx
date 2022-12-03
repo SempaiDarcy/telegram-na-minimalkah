@@ -10,6 +10,7 @@ import {v1} from "uuid";
 
 function App() {
     const [message,setMessage] = useState<MessageType[]>([])
+
     console.log(message)
     const addMessage = (title:string) =>{
         const newMessage = {id:v1(),title}

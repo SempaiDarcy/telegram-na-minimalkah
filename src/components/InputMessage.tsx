@@ -10,16 +10,19 @@ type InputPropsType = {
 const InputMessage = (props:InputPropsType) => {
 
     const [text,setText] = useState('')
-    // const setLocalText = (e:ChangeEvent<HTMLInputElement>) => setText(e.currentTarget.value)
+    const [number,setNumber] = useState(5)
+    const setLocalText = (e:ChangeEvent<HTMLInputElement>) => setText(e.currentTarget.value)
     const totalMessage = props.message.length
     const lastMessageId = totalMessage>0?props.message[totalMessage-1].id:''
+
     return (
         <div>
-            <h2>Мы можем отправить 5 сообщений</h2>
-            <input value={text} type='text' onChange={(e:ChangeEvent<HTMLInputElement>) => setText(e.currentTarget.value)} />
+            <h2>Мы можем отправить {number} сообщений</h2>
+            <input value={text} type='text' onChange={setLocalText} />
             <button onClick={()=> {
                 props.addMessage(text)
                 setText('')
+                setNumber(number-1)
             }//при нажатии на онклик у нас срабатывает функция addmessage в которую мы передаем текст из нашего text
             }>Add</button>
             <button onClick={()=> setText('')}>Clear</button>
